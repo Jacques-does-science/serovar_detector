@@ -1,4 +1,19 @@
+# --- DEBUG START ---
+message("R Version: ", R.version.string)
+message("Library Paths: ")
+print(.libPaths())
+message("Installed Packages (dplyr check): ", system.file(package="dplyr"))
+# --- DEBUG END ---
+
 library(magrittr)
+library(dplyr)
+library(purrr)
+library(readr)
+library(stringr)
+library(tibble)
+library(argparser)
+library(yaml)
+library(logger)
 
 
 read_res <- function(res_file){
@@ -212,7 +227,7 @@ summarize_serovars <- function(kma_files, serovar_config_yaml, threshold, serova
   if (is.null(kma_table))
     stop(
       "No `.res` files detected! Check the kma results location: ",
-      dirname(kma_dir) %>%
+      dirname(kma_files) %>%
         unique
     )
   

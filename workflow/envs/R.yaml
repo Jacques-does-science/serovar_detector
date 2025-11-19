@@ -1,6 +1,13 @@
 channels:
- - conda-forge
+  - conda-forge
 dependencies:
- - r-essentials
- - r-logger
- - r-yaml
+  - r-base=4.3.3      # Pinning a known stable version
+  - r-dplyr           # Explicitly needed
+  - r-purrr           # Explicitly needed
+  - r-readr           # Explicitly needed
+  - r-stringr         # Explicitly needed
+  - r-tibble          # Explicitly needed
+  - r-magrittr        # Explicitly needed
+  - r-argparser       # Used for args (implied)
+  - r-yaml            # Used for config reading
+  - r-logger          # Used for logging

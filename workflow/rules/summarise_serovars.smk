@@ -2,6 +2,8 @@ rule summarize_serovars:
 	input:
 		assembly_results = expand(rules.detect_assembly_capsules.output.res_file, sample = assembly_sheet["sample_name"].values.tolist()),
 		reads_results = expand(rules.detect_reads_capsules.output.res_file, sample = reads_sheet["sample_name"].values.tolist())
+	log:
+		"logs/summarize_serovars.log"
 	params:
 		threshold = threshold,
 		debug = debug
